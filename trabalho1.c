@@ -12,22 +12,33 @@ void main (){
 
         //dicionario de dados
         char *wordList;
+        int letterCount, pointerLen;
 
-        wordList = (char *) calloc (10, sizeof(char));
+
+        //alocando espaço na memoria
+        wordList = (char *) calloc(20, sizeof(char));
+        pointerLen=20*sizeof(char);
 
         if (wordList==NULL){
                 printf("Erro de alocacao\n");
         } else{ 
                 printf("Tudo certo\n");
         }
-
-        //colocando conteudo para teste 
+       
         
-        scanf("%s", wordList);
-        printf("%s\n", wordList);
-        if(wordList[2]=='\0'){
-                printf("agora sim sabemos como separam\n");
-        }
+       scanf("%s %s", wordList, wordList+4);
+       letterCount=strlen(wordList);
+       printf("%d", pointerLen );
+       //REALOCANDO ESPAÇO
+        
+        
+        //testando realloc
+        wordList=(char *) realloc(wordList, 40*sizeof(char));
+        
+        
         free(wordList);        
         return;
 }
+
+
+
