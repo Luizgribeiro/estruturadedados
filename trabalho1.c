@@ -21,31 +21,27 @@ void main (){
 
         if (wordList==NULL){
                 printf("Erro de alocacao\n");
-        } else{ 
-                printf("Tudo certo\n");
         }
-       
-        //teste de retorno do scanf
-        //--> pegar palavras digitadas 
-        //--> contar quantas letras
-        //-->realocar espaço
-        
-        while(1){ 
-                scanf("%c", &letter);
-                wordList[letterCount]=letter;
-                printf("%c", *(wordList+letterCount));
 
-               letterCount++;
-               if(letterCount>=(pointerLen/2)){
-                       wordList=(char *) realloc(wordList,pointerLen*2);
+        while(1){
+                //realocando espaço
+                if(letterCount>=(pointerLen/2)){
                        pointerLen*=2;
-                //mudar condicao de parada para eof
-                 }else if(pointerLen>40) {
+                       wordList=(char *) realloc(wordList,(pointerLen*2));
+                       pointerLen*=2;
+                //pegando entrada do usuario
+                }else if(scanf("%c", &letter)!=EOF){
+                        
+                        wordList[letterCount]=letter;
+                        printf("%c", *(wordList+letterCount));
+                        letterCount++;
+                //parando no EOF
+                }else{
                         break;
-                 }
+                }
+
         }
 
-        //printf("%s", wordList);        
         free(wordList);        
         return;
 }
