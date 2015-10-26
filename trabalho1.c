@@ -14,7 +14,6 @@ void main (){
         char *wordList, letter;
         int letterCount=0, pointerLen;
 
-
         //alocando espaço na memoria
         wordList = (char *) calloc(20, sizeof(char));
         pointerLen=20*sizeof(char);
@@ -39,9 +38,11 @@ void main (){
                 }else{
                         break;
                 }
-
         }
-
+//fazer funcao para testar se é anagrama
+        //recebe o endereço do ponteiro e o tamanho dele
+        //conta o tamanho da string (até \0) para a primeira comparacao
+        //compara letra a letra para verificar se é anagrama 
         free(wordList);        
         return;
 }
