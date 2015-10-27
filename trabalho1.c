@@ -8,6 +8,39 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+void anagramtest(char * c, int size){
+        char space=' ', breakline='\n', *comparable, *word;
+        int currentpos=0, stringsize=0,newstringsize=0;
+        
+        comparable=(char*)calloc(size,sizeof(char));
+        word=(char*)calloc(size,sizeof(char));
+
+        //pegando a primeira palavra
+        while ((c[currentpos]!= space) && (c[currentpos]!=breakline)) {
+                word[stringsize]=c[currentpos];
+                stringsize++;
+                currentpos++;
+        }
+
+        //pegando a proxima palavra
+        currentpos++;
+        while((c[currentpos]!= space) && (c[currentpos]!=breakline)){
+                comparable[newstringsize]=c[currentpos];
+                newstringsize++;
+                currentpos++;
+        }
+
+        if(stringsize==newstringsize){
+                printf("temos o mesmo tamanho\n\n");
+        }else
+        //pegar a segunda
+        printf("Ele está parado aqui %s!!!!!\n\n\n",word);
+        //comparar o tamanho delas
+        //ir para a proxima se o tamanho nao for o mesmo
+        //se for o mesmo, comparar letra a letra
+}
+
 void main (){
 
         //dicionario de dados
@@ -39,10 +72,9 @@ void main (){
                         break;
                 }
         }
-//fazer funcao para testar se é anagrama
-        //recebe o endereço do ponteiro e o tamanho dele
-        //conta o tamanho da string (até \0) para a primeira comparacao
-        //compara letra a letra para verificar se é anagrama 
+
+        anagramtest(wordList, pointerLen);
+
         free(wordList);        
         return;
 }
