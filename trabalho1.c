@@ -118,8 +118,7 @@ void anagramtest(char * c, int size){
                                 stringsize++;
                                 currentpos++;
                         }       
-                        printf("%s", word);
-
+                        //printf("%s", word);
                         //alocando espaço para os anagramas&comparable e checando
                                 anagrams=(char*)calloc(size,sizeof(char));
                                 comparable=(char*)calloc(size,sizeof(char));
@@ -153,7 +152,12 @@ void anagramtest(char * c, int size){
                                         comparable[i]=0;
                                 }
                         }
-                        if(numofwrd>1){
+                        //colocando a propria palavra no vetor
+                        strcat(anagrams, word);
+                        numofwrd++;
+                        if(numofwrd>0){
+                                //strcat(word, anagrams);
+                                //numofwrd++;
                                 sortstring(anagrams,stringsize, numofwrd);
                         }
 
@@ -209,7 +213,7 @@ void main (){
         }
 
         anagramtest(wordList, letterCount);
-        printf("\n");
+        //printf("\n");
         free(wordList);        
         return;
 }
